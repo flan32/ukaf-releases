@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>UKAF App</title>
+<style>
+  :root {
+    --bg: #f6f6f3;
+    --surface: #ffffff;
+    --ink: #20262b;
+    --muted: #5b6570;
+    --line: #e4e2dc;
+    --accent: #0f7a6b;
+    --accent-ink: #0b5c50;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', system-ui, -apple-system, Arial, sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 680px; margin: 0 auto; padding: 72px 24px 96px; }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--accent-ink);
+    margin-bottom: 14px;
+  }
+  .eyebrow::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
+  h1 { font-size: 34px; font-weight: 700; margin: 0 0 10px; letter-spacing: -0.01em; text-wrap: balance; }
+  .tagline { color: var(--muted); font-size: 16px; margin: 0 0 40px; max-width: 46ch; }
+  p { margin: 0 0 16px; max-width: 62ch; }
+  h2 { font-size: 15px; font-weight: 700; letter-spacing: 0.02em; margin: 40px 0 14px; color: var(--ink); }
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 22px 26px;
+  }
+  ul { margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 8px; }
+  li { max-width: 58ch; }
+  a { color: var(--accent-ink); text-decoration-color: rgba(11,92,80,0.35); }
+  a:hover { text-decoration-color: currentColor; }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  code {
+    background: rgba(15,122,107,0.08);
+    color: var(--accent-ink);
+    padding: 1px 6px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    font-family: 'Cascadia Code', Consolas, monospace;
+  }
+  footer {
+    margin-top: 56px;
+    padding-top: 22px;
+    border-top: 1px solid var(--line);
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px;
+    font-size: 13px; color: var(--muted);
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="eyebrow">Clinic software</div>
+    <h1>UKAF App</h1>
+    <p class="tagline">Universal Clinical Assessment Form — a desktop app for managing clinic visits and insurance authorization workflows.</p>
+
+    <p>
+      UKAF App is a Windows desktop application used internally by clinic staff to manage patient
+      visits, insurance authorization workflows, doctor stamping of forms, and related administrative
+      records. It runs locally on each clinic's own computer and keeps its data in a local database on
+      that machine — nothing is sent to a server operated by the developer.
+    </p>
+
+    <h2>What it does</h2>
+    <div class="card">
+      <ul>
+        <li>Tracks patient visits, insurance authorization status, and related documents</li>
+        <li>Lets doctors apply digital stamps to insurance forms (UCAF / PDF documents)</li>
+        <li>Tracks KPIs around insurance claim approvals and rejections</li>
+        <li>Backs up its local data, optionally to the clinic's own Google Drive</li>
+      </ul>
+    </div>
+
+    <h2>Google Drive access</h2>
+    <p>
+      UKAF App can optionally back up its data as a single <code>.zip</code> file to the clinic's own
+      Google Drive account. It uses Google's narrowest available Drive scope,
+      <code>drive.file</code>, which only lets the app see and manage files that it itself creates —
+      it cannot see, list, or modify anything else already in the user's Drive. See the
+      <a href="privacy.html">Privacy Policy</a> for full details.
+    </p>
+
+    <footer>
+      <span><a href="mailto:ukafapp@gmail.com">ukafapp@gmail.com</a></span>
+      <span><a href="privacy.html">Privacy Policy</a></span>
+    </footer>
+  </div>
+</body>
+</html>
